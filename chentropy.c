@@ -21,9 +21,10 @@ int main() {
     //////////////////////////
     // BODY
     char c; 
+    int tow;
     while(1) {
         c = getchar();
-        int tow = minl + (absmod(c, maxl - minl));
+        tow = minl + (absmod(c, maxl - minl));
 
         while(tow-- > 0) {
             c = getchar();
