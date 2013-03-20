@@ -2,6 +2,7 @@
 #include <string.h>
 #include <math.h>
 #include <inttypes.h>
+#include <stdlib.h>
 
 int absmod(int i, int m) { return abs(i%m); }
 
