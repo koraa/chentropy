@@ -11,6 +11,9 @@ IFILE = chentropy.c
 # Amount of memory to alloc on autorun, Megs
 STD_SOURCE = /dev/urandom
 
+# Default number of lines to output
+STD_LEN = 30
+
 release :
 	$(GCC) $(IFILE) $(LIBS) $(RELEASE_FLAGS) -o $(RELEASE_NAME)
 
@@ -20,14 +23,14 @@ debug :
 ####################
 
 run : release
-	./$(RELEASE_NAME) < $(STD_SOURCE)
+	./$(RELEASE_NAME) < $(STD_SOURCE) | head -n $(STD_LEN)
 
 dbrun : debug
-	./$(DEBUG_NAME) < $(STD_SOURCE)
+	./$(DEBUG_NAME) < $(STD_SOURCE) | head -n $(STD_LEN)
 
 gdb : debug
 	@echo "--------------------------------------------------"
-	gdb --args ./$(DEBUG_NAME) $(STD_SOURCE)
+	gdb --args ./$(DEBUG_NAME) < $(STD_SOURCE)
 
 #####################
 
