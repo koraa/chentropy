@@ -28,9 +28,9 @@ run : release
 dbrun : debug
 	./$(DEBUG_NAME) < $(STD_SOURCE) | head -n $(STD_LEN)
 
-gdb : debug
-	@echo "--------------------------------------------------"
-	gdb --args ./$(DEBUG_NAME) < $(STD_SOURCE)
+#gdb : debug
+	#@echo "--------------------------------------------------"
+	#gdb --args ./$(DEBUG_NAME) < $(STD_SOURCE)
 
 #####################
 
