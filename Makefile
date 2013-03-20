@@ -8,6 +8,10 @@ DEBUG_NAME = chentropy_debug
 
 IFILE = chentropy.c
 
+PREFIX = /usr/local
+BIN    = $(PREFIX)/bin
+TO_EXPORT = "$(RELEASE_NAME)" ./script/*
+
 # Amount of memory to alloc on autorun, Megs
 STD_SOURCE = /dev/urandom
 
@@ -19,6 +23,11 @@ release :
 
 debug :
 	$(GCC) $(IFILE) $(LIBS) $(DEBUG_FLAGS) -o $(DEBUG_NAME)
+
+####################
+
+install : release
+	cp -v $(TO_EXPORT) $(BIN)
 
 ####################
 
