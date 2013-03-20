@@ -1,0 +1,8 @@
+#!/bin/sh
+
+DIR="`dirname "$0"`"
+
+export PATH="$PATH:$DIR:$DIR/..:$PWD:$PWD/.."
+echo $PATH
+
+chentropy </dev/urandom | head -n 200 | xargs touch
