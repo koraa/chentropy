@@ -51,4 +51,4 @@ TODO
 * Add args for charlib
     * Support character classes
 
-
+* Create simple scripted installer
