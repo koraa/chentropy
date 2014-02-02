@@ -6,14 +6,16 @@
 
 int absmod(int i, int m) { return abs(i%m); }
 
-char* lib = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-int libl;
-
-int minl = 5, maxl = 40;
-
 int main(int argc, char**argv) {
-  //////////////////////////
   // INIT
+
+  char* lib = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  int libl;
+
+  int minl = 5, maxl = 40;
+
+  //////////////////////////
+  // ARGS
 
   if (argc > 1)
     lib = argv[0];
