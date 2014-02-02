@@ -4,7 +4,9 @@
 #include <inttypes.h>
 #include <stdlib.h>
 
-int absmod(int i, int m) { return abs(i%m); }
+int absmod(int i, int m) {
+  return abs(i%m);
+}
 
 int main(int argc, char**argv) {
   // INIT
@@ -14,15 +16,14 @@ int main(int argc, char**argv) {
 
   int minl = 5, maxl = 40;
 
-  //////////////////////////
   // ARGS
 
   if (argc > 1)
     lib = argv[0];
   libl = strlen(lib);
 
-  //////////////////////////
   // BODY
+
   char c;
   int tow;
   while(1) {
