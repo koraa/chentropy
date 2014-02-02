@@ -1,7 +1,7 @@
 GCC  = cc
 
-RELEASE_FLAGS = -Ofast -Wall
-DEBUG_FLAGS  = -O0 -Wall -g3 -v -fdump-final-insns=rtl -fmem-report -fstack-usage -save-temps
+RELEASE_FLAGS = -lm -Ofast -Wall
+DEBUG_FLAGS  = -lm -O0 -Wall -g3 -v -fdump-final-insns=rtl -fmem-report -fstack-usage -save-temps
 
 RELEASE_NAME = chentropy
 DEBUG_NAME = chentropy_debug
@@ -37,9 +37,9 @@ run : release
 dbrun : debug
 	./$(DEBUG_NAME) < $(STD_SOURCE) | head -n $(STD_LEN)
 
-#gdb : debug
-	#@echo "--------------------------------------------------"
-	#gdb --args ./$(DEBUG_NAME) < $(STD_SOURCE)
+gdb : debug
+	@echo "--------------------------------------------------"
+	gdb --args ./$(DEBUG_NAME) < $(STD_SOURCE)
 
 #####################
 
