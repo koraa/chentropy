@@ -12,26 +12,26 @@ int libl;
 
 int minl = 5, maxl = 40;
 
-int main() {
-    //////////////////////////
-    // INIT
-    
-    libl = strlen(lib);
+int main(int argc, char**argv) {
+  //////////////////////////
+  // INIT
+  
+  libl = strlen(lib);
 
-    //////////////////////////
-    // BODY
-    char c; 
-    int tow;
-    while(1) {
-        c = getchar();
-        tow = minl + (absmod(c, maxl - minl));
+  //////////////////////////
+  // BODY
+  char c;
+  int tow;
+  while(1) {
+    c = getchar();
+    tow = minl + (absmod(c, maxl - minl));
 
-        while(tow-- > 0) {
-            c = getchar();
-            putc(lib[absmod(c, libl)], stdout);
-        }
-        putc('\n', stdout);
+    while(tow-- > 0) {
+      c = getchar();
+      putc(lib[absmod(c, libl)], stdout);
     }
+    putc('\n', stdout);
+  }
 
-    return 0;
+  return 0;
 }
