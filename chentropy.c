@@ -58,15 +58,53 @@ int main(int argc, char**argv) {
   char* lib = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   int libl;
 
-  int minl = 40, maxl = 40;
+  char *sep = "\n";
 
-  // ARGS
+  int minl = 40, maxl = 40;
+  
+  int ai;
+  char* arg;
+  char opt;
+  for (ai=0; ai<argc; ai++) {
+    arg = argv[ai];
+
+    // Argument
+    if (arg[0] != '-' && arg[1] != '\0') {
+      lib = arg;
+      continue;
+    }
+   
+    // ELSE option 
+    opt = arg[1];
+
+    ai++;
+    if (ai >= argc)
+      exit(1);
+    arg = argv[ai];
+
+    switch(opt) {
+      case 'a':
+        minl = atoi(arg);
+        break;
+      case 'z':
+        maxl = atoi(arg);
+        break;
+      case 'x':
+        minl = maxl = atoi(arg);
+        break;
+      case 's':
+        sep = arg;
+        break;
+      default:
+        exit(2);
+    }
+  }
 
   libl = strlen(lib);
 
   // BODY
 
-  char *lbuf = malloc(maxl+1), *pt;
+  char *lbuf = malloc(maxl), *pt;
   char *tow = lbuf + maxl;
   int c, llen = maxl;
   while(true) {
@@ -87,9 +125,9 @@ int main(int argc, char**argv) {
     }
 
     // Output
-    *pt = '\n';
-    size_t wrot = fwrite(lbuf, sizeof(char), llen+1, stdout);
-    if (wrot != llen+1)
+    size_t wrot = fwrite(lbuf, sizeof(char), llen, stdout);
+    printf(sep);
+    if (wrot != llen)
       return 0;
   }
 }
